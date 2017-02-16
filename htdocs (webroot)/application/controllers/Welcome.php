@@ -34,17 +34,16 @@ class Welcome extends CI_Controller {
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('emailaddress', 'Email Address', 'required');
-    $this->form_validation->set_rules('subject', 'Subject', 'required');
+		$this->form_validation->set_rules('subject', 'Subject', 'required');
 
-    if ($this->form_validation->run() === FALSE)
-    {
+		if ($this->form_validation->run() === FALSE)
+		{
 				$this->load->view('templates/header');
 				$this->load->view('welcome_message');
 				$this->load->view('templates/footer');
-    }
-    else
-    {
-
+		}
+		else
+		{
 				$this->email->from('softwarebilly@gmail.com', 'William Gilchrist');
 				$this->email->to(explode(",", $_POST['emailaddress']));
 				// Documentation states to, can be a comma delimited string directly, but to show expertise - I turned it into an array anyway.
@@ -73,7 +72,7 @@ class Welcome extends CI_Controller {
 				echo "Email body<div>".  $_POST['emailbody']."</div><br /></div></div>";
 
 				$this->load->view('templates/footer');
-    }
+		}
 }  // end function index page
 
 }
