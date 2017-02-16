@@ -74,7 +74,7 @@ class Welcome extends CI_Controller {
 
 				$this->load->view('templates/footer');
     }
-	}  // end function index page
+}  // end function index page
 
 }
 // End of file
