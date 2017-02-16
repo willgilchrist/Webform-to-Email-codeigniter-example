@@ -62,15 +62,12 @@ class Welcome extends CI_Controller {
 				//$this->email->send();
 				//uncomment to send email request
 
+				$data['emailaddress'] = $_POST['emailaddress'];
+				$data['subject'] = $_POST['subject'];
+				$data['emailbody'] = $_POST['emailbody'];
+
 				$this->load->view('templates/header');
-
-				echo '<div class="container"><p>Email sent! <a href="/">Send another</a></p>';
-				echo "<div><p><h3><u>Output</u></h3></p>";
-				echo "To: " . $_POST['emailaddress']."<br />";
-				echo "Subject: ". $_POST['subject']."<br />";
-				echo "Email file path: ".$data["upload_data"]["full_path"]."<br />";
-				echo "Email body<div>".  $_POST['emailbody']."</div><br /></div></div>";
-
+				$this->load->view('email_sent', $data);
 				$this->load->view('templates/footer');
 		}
 }  // end function index page
