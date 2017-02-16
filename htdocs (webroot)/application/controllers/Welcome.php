@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 		ini_set('SMTP','smtp-relay.gmail.com');  // examples
 		ini_set('smtp_port',25);
 
-		$config['upload_path']          = 'C:\tmp';  //example - outside of webroot
+		$config['upload_path']          = 'C:\tmp';  // Windows example - outside of webroot
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 1000;
 		$config['max_width']            = 3000;
@@ -56,7 +56,7 @@ class Welcome extends CI_Controller {
 
 				if ($this->upload->do_upload('emailattachment')){
 						$data = array('upload_data' => $this->upload->data());
-						$this->email->attach($data["upload_data"]["full_path"]);  //Windows
+						$this->email->attach($data["upload_data"]["full_path"]);
 				}
 
 				//$this->email->send();
